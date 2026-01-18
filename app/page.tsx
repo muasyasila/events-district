@@ -7,20 +7,41 @@ import {
 } from "lucide-react";
 
 // Updated SocialCard to accept a custom text color class
-const SocialCard = ({ href, icon: Icon, label, bgColor, textColor = "text-white", className = "" }: any) => (
-  <motion.a
-    href={href}
-    target="_blank"
-    whileHover={{ y: -5, scale: 1.01 }}
-    whileTap={{ scale: 0.98 }}
-    className={`flex flex-col items-center justify-center p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] ${bgColor} ${textColor} shadow-xl transition-all border border-black/5 dark:border-white/10 ${className}`}
-  >
-    <Icon size={32} strokeWidth={2.5} className={textColor} />
-    <span className={`mt-3 font-black text-xs md:text-sm uppercase tracking-[0.2em] text-center ${textColor}`}>
+const SocialCard = ({ href, icon: Icon, label, bgColor, textColor = "text-white", className = "" }: any) => {
+  const [rotate, setRotate] = useState({ x: 0, y: 0 });
+
+  // This handles the "Magnetic" movement
+  const onMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    setRotate({ x: y * -20, y: x * 20 });
+  };
+
+  const onMouseLeave = () => setRotate({ x: 0, y: 0 });
+
+  return (
+    <motion.a
+      href={href}
+      target="_blank"
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+      animate={{ rotateX: rotate.x, rotateY: rotate.y }}
+      whileTap={{ scale: 0.95 }}
+      style={{ perspective: 1000 }} // Important for 3D depth
+      className={`flex flex-col items-center justify-center p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] ${bgColor} ${textColor} shadow-2xl transition-all border border-black/5 dark:border-white/10 ${className}`}
+    >
+      <motion.div
+        animate={{ y: rotate.x * 0.5, x: rotate.y * 0.5 }} // Icon moves slightly with the tilt
+      >
+        <Icon size={32} strokeWidth={2.5} className={textColor} />
+      </motion.div>
+      <span className={`mt-3 font-black text-xs md:text-sm uppercase tracking-[0.2em] text-center ${textColor}`}>
         {label}
-    </span>
-  </motion.a>
-);
+      </span>
+    </motion.a>
+  );
+};
 
 export default function ComingSoon() {
   const [darkMode, setDarkMode] = useState(true);
@@ -31,7 +52,7 @@ export default function ComingSoon() {
   }, [darkMode]);
 
   return (
-    <main className="min-h-screen w-full flex flex-col items-center py-12 px-4 md:px-6 bg-white dark:bg-[#0a0a0a] transition-colors duration-500">
+    <main className="relative min-h-screen w-full flex flex-col items-center py-12 px-4 md:px-6 bg-transparent transition-colors duration-500">
       
       {/* 1. DARK MODE TOGGLE */}
       <div className="fixed top-6 right-6 z-50">
@@ -62,10 +83,25 @@ export default function ComingSoon() {
           COMING <br /> SOON
         </motion.h2>
 
-        <div className="inline-flex items-center gap-2 bg-purple-600 text-white px-5 py-2 rounded-full text-xs md:text-sm font-black uppercase tracking-widest mb-4">
-          <Calendar size={16} />
-          Planning an Event?
-        </div>
+        <motion.div 
+  animate={{ 
+    scale: [1, 1.05, 1],
+    boxShadow: [
+      "0px 0px 0px rgba(147, 51, 234, 0)", 
+      "0px 0px 20px rgba(147, 51, 234, 0.5)", 
+      "0px 0px 0px rgba(147, 51, 234, 0)"
+    ] 
+  }}
+  transition={{ 
+    duration: 2, 
+    repeat: Infinity, 
+    ease: "easeInOut" 
+  }}
+  className="inline-flex items-center gap-2 bg-purple-600 text-white px-5 py-2 rounded-full text-xs md:text-sm font-black uppercase tracking-widest mb-4 cursor-default"
+>
+  <Calendar size={16} />
+  Planning an Event?
+</motion.div>
         <p className="text-zinc-500 dark:text-zinc-400 font-medium text-lg italic">
           Reach out via our socials below.
         </p>
@@ -146,6 +182,40 @@ export default function ComingSoon() {
       <footer className="mt-20 pb-10 text-[10px] font-bold tracking-[0.3em] uppercase opacity-30 dark:text-white text-black text-center">
         © 2026 Events District
       </footer>
+      {/* Background Layer: Blobs and Grain */}
+      <div className="fixed inset-0 -z-20 overflow-hidden pointer-events-none bg-white dark:bg-[#0a0a0a]">
+        {/* Top Left Purple Blob */}
+        <motion.div
+          animate={{
+            x: [-40, 40, -40],
+            y: [-40, 40, -40],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-[10%] -left-[10%] w-[70%] h-[70%] bg-purple-600/30 dark:bg-purple-900/40 rounded-full blur-[120px]"
+        />
+
+        {/* Bottom Right Blue Blob */}
+        <motion.div
+          animate={{
+            x: [40, -40, 40],
+            y: [40, -40, 40],
+            scale: [1, 1.3, 1],
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -bottom-[10%] -right-[10%] w-[70%] h-[70%] bg-blue-600/20 dark:bg-blue-900/30 rounded-full blur-[150px]"
+        />
+
+        {/* Film Grain Texture */}
+       {/* Film Grain Texture Overlay */}
+<div 
+  className="fixed inset-0 z-[60] pointer-events-none opacity-[0.04] dark:opacity-[0.07] mix-blend-overlay"
+  style={{ 
+    backgroundImage: `url('https://grainy-gradients.vercel.app/noise.svg')`,
+    filter: 'contrast(120%) brightness(120%)'
+  }}
+></div>
+      </div>
     </main>
   );
 }
