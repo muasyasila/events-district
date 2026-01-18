@@ -13,6 +13,7 @@ import WaitlistInput from "./components/WaitlistInput";
 import ScrollingTicker from "./components/ScrollingTicker";
 import BackgroundLayers from "./components/BackgroundLayers";
 import TimeGreeting from "./components/TimeGreeting";
+import Countdown from "./components/Countdown";
 
 export default function ComingSoon() {
   const [darkMode, setDarkMode] = useState(true);
@@ -51,38 +52,64 @@ export default function ComingSoon() {
       </div>
 
       {/* Hero Section */}
-      <div className="text-center mb-16 px-4 text-black dark:text-white">
+      <div className="text-center mb-12 px-4 text-black dark:text-white">
         <TimeGreeting />
-        <motion.h2 className="text-6xl md:text-9xl font-black tracking-tighter leading-[0.85] mb-8">
+        
+        <motion.h2 className="text-6xl md:text-9xl font-black tracking-tighter leading-[0.85] mb-12">
           COMING <br /> SOON
         </motion.h2>
 
-        <motion.div 
-          animate={{ scale: [1, 1.05, 1], boxShadow: ["0px 0px 0px rgba(147,51,234,0)", "0px 0px 20px rgba(147,51,234,0.5)", "0px 0px 0px rgba(147,51,234,0)"] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="inline-flex items-center gap-2 bg-purple-600 text-white px-5 py-2 rounded-full text-xs md:text-sm font-black uppercase tracking-widest mb-4 cursor-default"
-        >
-          <Calendar size={16} /> Planning an Event?
-        </motion.div>
-        <p className="text-zinc-500 dark:text-zinc-400 font-medium text-lg italic">Reach out via our socials below.</p>
-      </div>
+        <Countdown />
 
+        {/* Updated Booking Button - Now a real link */}
+        <div className="mt-8 flex flex-col items-center">
+          <motion.a 
+            href="https://wa.me/254768842000?text=Hi%20Events%20District!%20I'm%20planning%20an%20event%20and%20would%20love%20to%20discuss%20some%20ideas."
+            target="_blank"
+            animate={{ 
+              scale: [1, 1.05, 1], 
+              boxShadow: ["0px 0px 0px rgba(147,51,234,0)", "0px 0px 20px rgba(147,51,234,0.3)", "0px 0px 0px rgba(147,51,234,0)"] 
+            }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-500 text-white px-8 py-3 rounded-full text-xs md:text-sm font-black uppercase tracking-widest mb-6 cursor-pointer transition-all active:scale-95 shadow-lg"
+          >
+            <Calendar size={18} /> Planning an Event?
+          </motion.a>
+          
+          <p className="text-zinc-500 dark:text-zinc-400 font-medium text-lg italic">
+            Reach out via our socials below.
+          </p>
+        </div>
+      </div>
+      
+      {/* Lead Generation */}
       <WaitlistInput />
 
-      {/* Bento Grid */}
-      <div className="max-w-4xl w-full grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="col-span-2">
-          <SocialCard href="#" icon={Instagram} label="Instagram" bgColor="bg-gradient-to-br from-[#833ab4] via-[#fd1d1d] to-[#fcb045]" />
+      {/* Bento Grid - Luxury Monochrome Version */}
+    
+      <div className="max-w-xl w-full px-4">
+        <div className="flex items-center justify-between mb-6">
+          <span className="h-[1px] flex-1 bg-zinc-200 dark:bg-zinc-800" />
+          <span className="px-4 text-[9px] font-black uppercase tracking-[0.4em] text-zinc-400">
+            Connect
+          </span>
+          <span className="h-[1px] flex-1 bg-zinc-200 dark:bg-zinc-800" />
         </div>
-        <SocialCard href="#" icon={Video} label="TikTok" bgColor="bg-zinc-950" />
-        <SocialCard href="#" icon={MessageCircle} label="WhatsApp" bgColor="bg-[#25D366]" />
-        <SocialCard href="#" icon={Ghost} label="Snapchat" bgColor="bg-[#FFFC00]" textColor="text-black" />
-        <SocialCard href="#" icon={AtSign} label="Threads" bgColor="bg-zinc-900" />
-        <SocialCard href="#" icon={Youtube} label="YouTube" bgColor="bg-[#FF0000]" />
-        <SocialCard href="#" icon={Send} label="Facebook" bgColor="bg-[#1877F2]" />
-        <div className="col-span-2 md:col-span-4 mt-2">
-          <SocialCard href="mailto:info@eventsdistrict.com" icon={Mail} label="Get in Touch via Email" bgColor="bg-zinc-100 dark:bg-zinc-800" textColor="text-zinc-800 dark:text-white" />
+
+        <div className="grid grid-cols-4 md:grid-cols-8 gap-3">
+          <SocialCard href="#" icon={Instagram} hoverGlow="#E1306C" />
+          <SocialCard href="#" icon={Video} hoverGlow="#00f2ea" />
+          <SocialCard href="#" icon={MessageCircle} hoverGlow="#25D366" />
+          <SocialCard href="#" icon={Ghost} hoverGlow="#FFFC00" />
+          <SocialCard href="#" icon={AtSign} hoverGlow="#ffffff" />
+          <SocialCard href="#" icon={Youtube} hoverGlow="#FF0000" />
+          <SocialCard href="#" icon={Send} hoverGlow="#1877F2" />
+          <SocialCard href="mailto:info@eventsdistrict.com" icon={Mail} hoverGlow="#9333ea" />
         </div>
+
+        <p className="mt-8 text-center text-[10px] text-zinc-500 font-bold uppercase tracking-widest opacity-50">
+          Private Events • Corporate • Luxury
+        </p>
       </div>
 
       <footer className="mt-20 pb-10 text-[10px] font-bold tracking-[0.3em] uppercase opacity-30 dark:text-white text-black text-center">
