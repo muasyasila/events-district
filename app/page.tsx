@@ -14,6 +14,7 @@ import ScrollingTicker from "./components/ScrollingTicker";
 import BackgroundLayers from "./components/BackgroundLayers";
 import TimeGreeting from "./components/TimeGreeting";
 import Countdown from "./components/Countdown";
+import { FacebookIcon, TikTokIcon } from "./components/BrandIcons";
 
 export default function ComingSoon() {
   const [darkMode, setDarkMode] = useState(true);
@@ -100,20 +101,20 @@ export default function ComingSoon() {
             Explore Our Universe
           </h3>
           <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-500 mt-2">
-            See how we’re redefining Events in Nairobi
+            See how we’re redefining Events in Kenya
           </p>
         </div>
 
         {/* The Grid stays the same but feels more important now */}
         <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-8 gap-x-4 gap-y-6">
-          <SocialCard href="YOUR_LINK" icon={Instagram} label="Stories" hoverGlow="#E1306C" />
-          <SocialCard href="YOUR_LINK" icon={Video} label="Vibes" hoverGlow="#00f2ea" />
-          <SocialCard href="YOUR_LINK" icon={MessageCircle} label="Direct" hoverGlow="#25D366" />
-          <SocialCard href="YOUR_LINK" icon={Ghost} label="Moments" hoverGlow="#FFFC00" />
-          <SocialCard href="YOUR_LINK" icon={AtSign} label="Updates" hoverGlow="#ffffff" />
-          <SocialCard href="YOUR_LINK" icon={Youtube} label="Cinematics" hoverGlow="#FF0000" />
-          <SocialCard href="YOUR_LINK" icon={Send} label="Connect" hoverGlow="#1877F2" />
-          <SocialCard href="mailto:info@eventsdistrict.com" icon={Mail} label="Inquire" hoverGlow="#9333ea" />
+          <SocialCard href="YOUR_LINK" icon={Instagram} label="Instagram" hoverGlow="#E1306C" />
+         <SocialCard href="#" icon={TikTokIcon} label="Tiktok" hoverGlow="#FE2C55" />
+          <SocialCard href="#" icon={FacebookIcon} label="Facebook" hoverGlow="#1877F2" />
+          <SocialCard href="YOUR_LINK" icon={AtSign} label="Threads" hoverGlow="#ffffff" />
+           <SocialCard href="YOUR_LINK" icon={Ghost} label="Snapchat" hoverGlow="#FFFC00" />
+          <SocialCard href="YOUR_LINK" icon={Youtube} label="Youtube" hoverGlow="#FF0000" />
+          <SocialCard href="YOUR_LINK" icon={MessageCircle} label="Whatsapp" hoverGlow="#25D366" />
+          <SocialCard href="mailto:info@eventsdistrict.com" icon={Mail} label="Email" hoverGlow="#9333ea" />
         </div>
       </div>
 
