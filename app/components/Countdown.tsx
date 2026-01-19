@@ -65,7 +65,7 @@ const Countdown = () => {
   }, [targetDate]);
 
   return (
-    <div className="flex items-center justify-center divide-x divide-purple-500/10 mb-16">
+    <div className="flex items-center justify-center divide-x divide-purple-500/10 mb-5">
       <TimeUnit value={timeLeft.days} label="Days" />
       <TimeUnit value={timeLeft.hours} label="Hours" />
       <TimeUnit value={timeLeft.minutes} label="Min" />

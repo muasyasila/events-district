@@ -133,7 +133,7 @@ export default function ComingSoon() {
 
         <Countdown />
 
-        <div className="mt-4 flex flex-col items-center">
+        <div className="flex flex-col items-center">
           <motion.a 
             href="https://wa.me/254768842000"
             target="_blank"
