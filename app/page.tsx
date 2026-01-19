@@ -146,7 +146,7 @@ export default function ComingSoon() {
         </div>
       </div>
 
-      <footer className="mt-8 pb-6 text-[10px] font-bold tracking-[0.3em] uppercase opacity-30 dark:text-white text-black text-center">
+      <footer className="mt-8 pb-2 text-[10px] font-bold tracking-[0.3em] uppercase opacity-30 dark:text-white text-black text-center">
         © 2026 Events District
       </footer>
 
