@@ -37,15 +37,33 @@ export default function ComingSoon() {
         </button>
       </div>
 
-      {/* Logo */}
+ {/* --- TIGHT & ELITE LOGO --- */}
       <motion.div 
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        className="bg-black dark:bg-white border-[3px] border-black px-6 py-3 shadow-[6px_6px_0px_0px_rgba(147,51,234,0.5)] mb-6"
+        initial={{ opacity: 0, y: -5 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="flex flex-col items-center mb-6 mt-4 cursor-default"
       >
-        <h1 className="text-white dark:text-black text-xl md:text-3xl font-black italic tracking-tighter uppercase">
-          EVENTS DISTRICT
-        </h1>
+        <div className="relative">
+          {/* Unified Color with a tighter Purple Shadow (4px instead of 6px) */}
+          <h1 className="text-2xl md:text-5xl font-black italic tracking-tighter uppercase leading-none 
+                         text-black dark:text-white 
+                         drop-shadow-[4px_4px_0px_rgba(147,51,234,0.8)]">
+            EVENTS DISTRICT
+          </h1>
+        </div>
+
+        {/* Kenya with Purple Lines - Tighter top margin (mt-3) */}
+        <div className="mt-3 flex items-center gap-3">
+          {/* Left Purple Line */}
+          <div className="h-[2px] w-6 md:w-8 bg-purple-600" />
+          
+          <span className="text-[9px] md:text-xs font-black tracking-[0.5em] uppercase text-zinc-500 ml-[0.5em]">
+            Kenya
+          </span>
+          
+          {/* Right Purple Line */}
+          <div className="h-[2px] w-6 md:w-8 bg-purple-600" />
+        </div>
       </motion.div>
 
       <div className="w-screen mb-6">
