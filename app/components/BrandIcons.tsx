@@ -1,27 +1,30 @@
 export const FacebookIcon = ({ size = 18, className = "", style = {} }: any) => (
   <svg 
     width={size} height={size} viewBox="0 0 24 24" 
-    fill="currentColor" className={className} style={style}
+    fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+    className={className} style={style}
   >
-    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
   </svg>
 );
 
 export const TikTokIcon = ({ size = 18, className = "", style = {} }: any) => (
   <svg 
     width={size} height={size} viewBox="0 0 24 24" 
-    fill="currentColor" className={className} style={style}
+    fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+    className={className} style={style}
   >
-    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.06-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.9-.32-1.98-.23-2.81.31-.75.42-1.24 1.25-1.33 2.1-.05.7.08 1.42.44 2.02.51.8 1.43 1.32 2.39 1.33.72.01 1.44-.19 2.03-.61.68-.43 1.16-1.13 1.35-1.89.15-.47.18-.97.18-1.46V.02z"/>
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
   </svg>
 );
 
 export const SnapchatIcon = ({ size = 18, className = "", style = {} }: any) => (
   <svg 
     width={size} height={size} viewBox="0 0 24 24" 
-    fill="currentColor" className={className} style={style}
+    fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+    className={className} style={style}
   >
-    <path d="M12 1.5c-3.5 0-5.5 2.1-5.5 5.2 0 1.1.2 2 .5 2.5-.5.1-1.1.4-1.5.8-.5.5-.6 1.1-.5 1.6.1.4.3.7.6.8-.2.2-.3.5-.3.8 0 .5.3.9.7 1.1-.2.2-.3.4-.3.7 0 .8.8 1.4 1.8 1.4.2 0 .4 0 .6-.1.5.7 1.5 1.3 2.7 1.5.2.5.7.8 1.2.8.6 0 1-.3 1.3-.8 1.2-.2 2.2-.8 2.7-1.5.2.1.4.1.6.1 1 0 1.8-.6 1.8-1.4 0-.3-.1-.5-.3-.7.4-.2.7-.6.7-1.1 0-.3-.1-.6-.3-.8.3-.1.5-.4.6-.8.1-.5 0-1.1-.5-1.6-.4-.4-1-.7-1.5-.8.3-.5.5-1.4.5-2.5 0-3.1-2-5.2-5.5-5.2z" />
+    <path d="M12 3c-4.62 0-5.5 3.5-5.5 6 0 1.5.3 2.5.5 3-.5.1-1.1.4-1.5.8s-.6 1.1-.5 1.6.3.7.6.8c-.2.2-.3.5-.3.8 0 .5.3.9.7 1.1-.2.2-.3.4-.3.7 0 .8.8 1.4 1.8 1.4.2 0 .4 0 .6-.1.5.7 1.5 1.3 2.7 1.5.2.5.7.8 1.2.8.6 0 1-.3 1.3-.8 1.2-.2 2.2-.8 2.7-1.5.2.1.4.1.6.1 1 0 1.8-.6 1.8-1.4 0-.3-.1-.5-.3-.7.4-.2.7-.6.7-1.1 0-.3-.1-.6-.3-.8.3-.1.5-.4.6-.8.1-.5 0-1.1-.5-1.6-.4-.4-1-.7-1.5-.8.2-.5.5-1.5.5-3 0-2.5-.88-6-5.5-6z" />
   </svg>
 );
 export const InstagramIcon = ({ size = 18, className = "", style = {} }: any) => (

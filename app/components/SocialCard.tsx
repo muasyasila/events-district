@@ -14,21 +14,12 @@ const SocialCard = ({ href, icon: Icon, label, hoverGlow, className = "" }: any)
     return () => observer.disconnect();
   }, []);
 
-  // Custom Logic for specific problematic brands
   const getSmartColor = () => {
-    if (!isHovered) return ''; // Return default (zinc-400) when not hovered
-
-    if (label.toLowerCase().includes("snap")) {
-      // Deep Gold for Light Mode, Bright Yellow for Dark Mode
-      return isDarkMode ? "#FFFC00" : "#d4af37"; 
-    }
-
-    if (label.toLowerCase().includes("threads") || hoverGlow === "#ffffff") {
-      // Pure White for Dark Mode, Deep Black for Light Mode
-      return isDarkMode ? "#ffffff" : "#000000";
-    }
-
-    return hoverGlow; // Use original brand color for everything else
+    const lowerLabel = label.toLowerCase();
+    if (lowerLabel.includes("snap")) return isDarkMode ? "#FFFC00" : "#d4af37";
+    if (lowerLabel.includes("threads") || hoverGlow === "#ffffff") return isDarkMode ? "#ffffff" : "#000000";
+    if (lowerLabel.includes("tiktok")) return "#25F4EE"; 
+    return hoverGlow;
   };
 
   const activeColor = getSmartColor();
@@ -39,44 +30,39 @@ const SocialCard = ({ href, icon: Icon, label, hoverGlow, className = "" }: any)
       target="_blank"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      whileHover={{ y: -3 }}
-      className={`flex flex-col items-center group transition-all duration-300 ${className}`}
+      whileHover={{ y: -8, scale: 1.02 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+      className={`flex flex-col items-center group cursor-pointer ${className}`}
     >
       <div 
-        className="relative flex items-center justify-center aspect-square w-full rounded-xl 
-          bg-zinc-100/80 dark:bg-zinc-900/50 
-          border border-black/5 dark:border-white/10 
-          transition-all duration-500 overflow-hidden mb-2 shadow-sm"
+        className="relative flex items-center justify-center aspect-square w-full rounded-2xl 
+          bg-white dark:bg-zinc-900/80 
+          border-2 transition-all duration-300 mb-3 overflow-hidden"
+        style={{ 
+          borderColor: isHovered ? activeColor : (isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)'),
+          boxShadow: isHovered ? `0 10px 30px -10px ${activeColor}66` : 'none'
+        }}
       >
-        {/* Glow Background */}
-        <div 
-          className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
-          style={{ backgroundColor: activeColor }}
-        />
-
         <Icon 
-          size={18} 
-          strokeWidth={2.5} 
-          className="relative z-10 text-zinc-400 transition-all duration-500"
-          style={{ color: isHovered ? activeColor : '' }}
+          size={22} 
+          strokeWidth={1.5} 
+          className="relative z-10 transition-colors duration-300"
+          style={{ 
+            // NO FILL - We strictly use color for the stroke/outline
+            fill: "none", 
+            color: isHovered 
+              ? activeColor 
+              : (isDarkMode ? '#a1a1aa' : '#27272a'), // Deep Zinc-800 for Light Mode visibility
+          }}
         />
-
-        {/* Tiny arrow */}
-        <motion.div
-          animate={{ opacity: isHovered ? 1 : 0, scale: isHovered ? 1 : 0.5 }}
-          className="absolute bottom-1.5 right-1.5 z-20"
-        >
-          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" 
-               stroke={activeColor} 
-               strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M7 17l9.2-9.2M17 17V7H7" />
-          </svg>
-        </motion.div>
       </div>
 
       <span 
-        className="text-[7px] md:text-[8px] font-black uppercase tracking-[0.2em] transition-colors duration-500"
-        style={{ color: isHovered ? activeColor : '#71717a' }}
+        className="text-[8px] font-black uppercase tracking-[0.25em] transition-all duration-300"
+        style={{ 
+          color: isHovered ? activeColor : (isDarkMode ? '#71717a' : '#3f3f46'),
+        }}
       >
         {label}
       </span>
