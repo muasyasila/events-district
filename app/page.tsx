@@ -37,32 +37,39 @@ export default function ComingSoon() {
         </button>
       </div>
 
- {/* --- TIGHT & ELITE LOGO --- */}
+{/* --- ELEVATED 3D LOGO --- */}
       <motion.div 
         initial={{ opacity: 0, y: -5 }}
         animate={{ opacity: 1, y: 0 }}
-        className="flex flex-col items-center mb-6 mt-4 cursor-default"
+        className="flex flex-col items-center mb-5 mt-4 cursor-default"
       >
-        <div className="relative">
-          {/* Unified Color with a tighter Purple Shadow (4px instead of 6px) */}
-          <h1 className="text-2xl md:text-5xl font-black italic tracking-tighter uppercase leading-none 
-                         text-black dark:text-white 
-                         drop-shadow-[4px_4px_0px_rgba(147,51,234,0.8)]">
+        {/* Relative container for the lift effect */}
+        <div className="relative group">
+          
+          {/* THE SHADOW: 
+              This stays "on the ground" while the text is "lifted"
+          */}
+          <span className="absolute inset-0 text-3xl md:text-5xl font-black italic tracking-tighter uppercase leading-none 
+                         text-purple-600/40 blur-[4px] translate-y-[6px] translate-x-[2px] -z-10 select-none">
+            EVENTS DISTRICT
+          </span>
+
+          {/* THE TEXT: 
+              This is the "lifted" layer
+          */}
+          <h1 className="text-3xl md:text-5xl font-black italic tracking-tighter uppercase leading-none 
+                         text-black dark:text-white relative z-10">
             EVENTS DISTRICT
           </h1>
         </div>
 
-        {/* Kenya with Purple Lines - Tighter top margin (mt-3) */}
-        <div className="mt-3 flex items-center gap-3">
-          {/* Left Purple Line */}
-          <div className="h-[2px] w-6 md:w-8 bg-purple-600" />
-          
-          <span className="text-[9px] md:text-xs font-black tracking-[0.5em] uppercase text-zinc-500 ml-[0.5em]">
+        {/* Kenya Section - Kept tight to the shadow layer */}
+        <div className="mt-4 flex items-center gap-3">
+          <div className="h-[2px] w-8 bg-purple-600" />
+          <span className="text-[10px] md:text-xs font-black tracking-[0.5em] uppercase text-zinc-500 ml-[0.5em]">
             Kenya
           </span>
-          
-          {/* Right Purple Line */}
-          <div className="h-[2px] w-6 md:w-8 bg-purple-600" />
+          <div className="h-[2px] w-8 bg-purple-600" />
         </div>
       </motion.div>
 
