@@ -11,7 +11,7 @@ const TimeGreeting = () => {
       const city = "NAIROBI"; 
       
       if (hour < 12) {
-        return `WELCOME, GUEST. THE DAY IS YOURS. WE ARE CRAFTING YOUR NEXT BIG MOMENT IN ${city}.`;
+        return `GOOD MORNING, WELCOME. THE DAY IS YOURS. WE ARE CRAFTING YOUR NEXT BIG MOMENT IN ${city}.`;
       }
       if (hour < 18) {
         return `GOOD AFTERNOON. YOUR VISION IS OUR BLUEPRINT. THE BEST OF ${city} IS YET TO COME.`;
@@ -19,7 +19,7 @@ const TimeGreeting = () => {
       if (hour < 23) {
         return `GOOD EVENING. STEP INSIDE. WE’RE DESIGNING AN EXTRAORDINARY NIGHT FOR YOU.`;
       }
-      return `MIDNIGHT IN ${city}. WHILE YOU DREAM, WE BUILD THE IMPOSSIBLE.`;
+      return `MIDNIGHT IN ${city}. WHILE YOU RELAX, WE BUILD THE IMPOSSIBLE.`;
     };
 
     setGreeting(getGreeting());

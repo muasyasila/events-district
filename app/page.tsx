@@ -14,7 +14,7 @@ import ScrollingTicker from "./components/ScrollingTicker";
 import BackgroundLayers from "./components/BackgroundLayers";
 import TimeGreeting from "./components/TimeGreeting";
 import Countdown from "./components/Countdown";
-import { FacebookIcon, TikTokIcon } from "./components/BrandIcons";
+import { FacebookIcon, TikTokIcon, SnapchatIcon, InstagramIcon } from "./components/BrandIcons";
 
 export default function ComingSoon() {
   const [darkMode, setDarkMode] = useState(true);
@@ -78,7 +78,7 @@ export default function ComingSoon() {
           </motion.a>
           
           <p className="text-zinc-500 dark:text-zinc-400 font-medium text-lg italic">
-            Reach out via our socials below.
+            Click above or reach out via our socials below.
           </p>
         </div>
       </div>
@@ -107,11 +107,11 @@ export default function ComingSoon() {
 
         {/* The Grid stays the same but feels more important now */}
         <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-8 gap-x-4 gap-y-6">
-          <SocialCard href="YOUR_LINK" icon={Instagram} label="Instagram" hoverGlow="#E1306C" />
+          <SocialCard href="YOUR_LINK" icon={InstagramIcon} label="Instagram" hoverGlow="#E1306C" />
          <SocialCard href="#" icon={TikTokIcon} label="Tiktok" hoverGlow="#FE2C55" />
           <SocialCard href="#" icon={FacebookIcon} label="Facebook" hoverGlow="#1877F2" />
           <SocialCard href="YOUR_LINK" icon={AtSign} label="Threads" hoverGlow="#ffffff" />
-           <SocialCard href="YOUR_LINK" icon={Ghost} label="Snapchat" hoverGlow="#FFFC00" />
+           <SocialCard href="YOUR_SNAP_LINK" icon={SnapchatIcon} label="Moments" hoverGlow="#FFFC00" />
           <SocialCard href="YOUR_LINK" icon={Youtube} label="Youtube" hoverGlow="#FF0000" />
           <SocialCard href="YOUR_LINK" icon={MessageCircle} label="Whatsapp" hoverGlow="#25D366" />
           <SocialCard href="mailto:info@eventsdistrict.com" icon={Mail} label="Email" hoverGlow="#9333ea" />
